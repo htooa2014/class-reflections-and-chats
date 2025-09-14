@@ -35,7 +35,7 @@ export const classesData: ClassData[] = [
     homework: "Video",
     summary: "ဒီနေ့သင်ခန်းစာက Canva နဲ့ ဗီဒီယိုဖန်တီးဖို့ နည်းလမ်းတွေပါ။ ဆရာကူလ်က လက်တွေ့ကျကျ သင်ကြားပေးတယ်။",
     reflection: "Canva က ဗီဒီယိုတွေဖန်တီးရာမှာ တကယ်ကို အသုံးဝင်ပါတယ်။",
-    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/jbQTV90Z6zE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4">သင့်ရဲ့ YouTube or other video link ကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p>`
+    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/jbQTV90Z6zE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4"></p>`
   },
   {
     day: 5,
@@ -44,7 +44,7 @@ export const classesData: ClassData[] = [
     homework: "Video",
     summary: "ဒီနေ့သင်ခန်းစာက Capcut နဲ့ ဗီဒီယိုဖန်တီးဖို့ နည်းလမ်းတွေပါ။ ဆရာအီရာက အကောင်းဆုံးနည်းလမ်းတွေ ပြောပြခဲ့ပါတယ်။",
     reflection: "Capcut ဟာ ဗီဒီယိုတည်းဖြတ်ဖို့အတွက် အရမ်းကောင်းတဲ့ application တစ်ခုပါ။",
-    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/VKNvAe3-VDE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4">သင့်ရဲ့ YouTube or other video link ကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p>`
+    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/VKNvAe3-VDE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4"></p>`
   },
   {
     day: 6,
@@ -62,7 +62,7 @@ export const classesData: ClassData[] = [
     homework: "Video",
     summary: "ဒီနေ့သင်ခန်းစာက AI ကို အသုံးပြုပြီး ဗီဒီယိုတွေ ဖန်တီးဖို့ပါ။ ဒီနည်းပညာက တကယ်ကို အံ့မခန်းပါ။",
     reflection: "AI ဗီဒီယိုဖန်တီးမှုက အနာဂတ်မှာ အရေးပါလာမယ်လို့ ယုံကြည်ပါတယ်။",
-    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/qPbcq8VOzk8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4">သင့်ရဲ့ YouTube or other video link ကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p>`
+    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/qPbcq8VOzk8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4"></p>`
   },
   {
     day: 8,
@@ -71,6 +71,6 @@ export const classesData: ClassData[] = [
     homework: "Video",
     summary: "ဒီနေ့ကတော့ သင်တန်းတစ်ခုလုံးကို ပြန်လည်သုံးသပ်တဲ့နေ့ပါ။ ကျွန်တော်ရဲ့ သင်တန်းမှတ်စုတွေနဲ့ သင်ယူခဲ့တာတွေကို ပြန်ပြီးသုံးသပ်ခဲ့ပါတယ်။",
     reflection: "ဒီသင်တန်းက ကျွန်တော့်အတွက် တကယ်ကို တန်ဖိုးရှိပါတယ်။",
-    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4">သင့်ရဲ့ YouTube or other video link ကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p><p class="mt-4">ဒီအိမ်စာမှာ စာသားပါ ပါဝင်ပါတယ်။ သင့်ရဲ့အိမ်စာစာသားကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p>`
+    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4"></p><p class="mt-4">ဒီအိမ်စာမှာ စာသားပါ ပါဝင်ပါတယ်။ သင့်ရဲ့အိမ်စာစာသားကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p>`
   }
 ];
