@@ -21,8 +21,7 @@ export const HomeworkModal = ({ classData, isOpen, onClose }: HomeworkModalProps
               အိမ်စာ (Day {classData.day})
             </DialogTitle>
           
-              <X className="w-5 h-5" />
-            </Button>
+           
           </div>
           <p className="text-muted-foreground text-sm mt-2">
             {classData.topic}
