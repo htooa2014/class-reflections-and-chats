@@ -42,7 +42,7 @@ export const classesData: ClassData[] = [
     topic: "Capcut သုံးပြီး သတင်း video တစ်ပုဒ်ဖန်းတီးခြင်း",
     lecturer: "Eira (Nova Admin)",
     homework: "Video",
-    summary: "ဒီနေ့သင်ခန်းစာက Capcut နဲ့ ဗီဒီယိုဖန်တီးဖို့ နည်းလမ်းတွေပါ။ ဆရာအီရာက အကောင်းဆုံးနည်းလမ်းတွေ ပြောပြခဲ့ပါတယ်။",
+    summary: "ဒီနေ့သင်ခန်းစာက Capcut နဲ့ ဗီဒီယိုဖန်တီးဖို့ နည်းလမ်းတွေပါ။ ဆရာမအီရာက အကောင်းဆုံးနည်းလမ်းတွေ ပြောပြခဲ့ပါတယ်။",
     reflection: "Capcut ဟာ ဗီဒီယိုတည်းဖြတ်ဖို့အတွက် အရမ်းကောင်းတဲ့ application တစ်ခုပါ။",
     homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/VKNvAe3-VDE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4"></p>`
   },
