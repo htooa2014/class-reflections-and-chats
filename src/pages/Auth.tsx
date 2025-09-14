@@ -33,19 +33,62 @@ const Auth = () => {
           },
         });
 
-        if (error) throw error;
+        if (error) {
+          // Handle specific signup errors
+          if (error.message.includes('rate limit')) {
+            toast({
+              title: "စောင့်ဆိုင်းပါ",
+              description: "အကောင့်ဖွင့်ခြင်းကို ခဏစောင့်ပြီး ထပ်ကြိုးစားပါ",
+              variant: "destructive",
+            });
+          } else if (error.message.includes('already registered')) {
+            toast({
+              title: "အကောင့်ရှိပြီးသားပါ",
+              description: "ဤအီးမေးလ်ဖြင့် အကောင့်ရှိပြီးသားပါ။ ဝင်ရောက်ကြည့်ပါ",
+              variant: "destructive",
+            });
+          } else {
+            throw error;
+          }
+          return;
+        }
 
+        // Clear form and show success message
+        setEmail("");
+        setPassword("");
+        setDisplayName("");
         toast({
           title: "အကောင့်ဖွင့်ပြီးပါပြီ",
-          description: "သင့်အီးမေးလ်ကို စစ်ဆေးပြီး အတည်ပြုလင့်ခ်ကို နှိပ်ပါ",
+          description: "သင့်အီးမေးလ်ကို စစ်ဆေးပြီး အတည်ပြုလင့်ခ်ကို နှိပ်ပါ။ ထို့နောက် ဝင်ရောက်နိုင်ပါပြီ",
         });
+        
+        // Switch to login mode after successful signup
+        setIsSignUp(false);
       } else {
         const { error } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
 
-        if (error) throw error;
+        if (error) {
+          // Handle specific login errors  
+          if (error.message.includes('Invalid login credentials')) {
+            toast({
+              title: "အကောင့်အချက်အလက် မှားယွင်းနေပါတယ်",
+              description: "အီးမေးလ် သို့မဟုတ် စကားဝှက် မှားယွင်းနေပါတယ်",
+              variant: "destructive",
+            });
+          } else if (error.message.includes('Email not confirmed')) {
+            toast({
+              title: "အီးမေးလ် အတည်ပြုရန်လိုအပ်ပါတယ်",
+              description: "သင့်အီးမေးလ်ကို စစ်ဆေးပြီး အတည်ပြုလင့်ခ်ကို နှိပ်ပါ",
+              variant: "destructive",
+            });
+          } else {
+            throw error;
+          }
+          return;
+        }
 
         toast({
           title: "ဝင်ရောက်ပြီးပါပြီ",
@@ -55,9 +98,10 @@ const Auth = () => {
         navigate("/");
       }
     } catch (error: any) {
+      console.error("Auth error:", error);
       toast({
         title: "အမှားတစ်ခုဖြစ်ပွားနေပါတယ်",
-        description: error.message,
+        description: error.message || "ကွန်ယက်ပြဿနာရှိနေပါတယ်။ ထပ်ကြိုးစားပါ",
         variant: "destructive",
       });
     } finally {
