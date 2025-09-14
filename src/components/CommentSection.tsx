@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, User2 } from "lucide-react";
+import { Send, User2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -96,9 +96,3 @@ export const CommentSection = ({ comments, onAddComment }: CommentSectionProps) 
     </div>
   );
 };
-
-const MessageCircle = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-  </svg>
-);
