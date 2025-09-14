@@ -123,7 +123,7 @@ const Index = () => {
           <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
             သင်တန်းတစ်ခုလုံးရဲ့ သင်ခန်းစာတွေနဲ့ သုံးသပ်ချက်တွေကို စုစည်းထားတဲ့ မှတ်တမ်း
           </p>
-          <p className="text-xl text-black/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-darkblue/90 max-w-2xl mx-auto leading-relaxed">
           Ethan (MCMC0196)
           </p>
           <div className="flex items-center justify-center space-x-2 mt-6 text-white/70">
