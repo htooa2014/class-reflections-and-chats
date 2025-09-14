@@ -94,7 +94,7 @@ const Index = () => {
                     onClick={() => navigate("/chatroom")}
                     variant="outline" 
                     size="sm"
-                    className="text-white border-white/30 hover:bg-white/10"
+                   
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
                     Chatroom
