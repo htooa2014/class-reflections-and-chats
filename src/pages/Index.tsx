@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookOpen, Sparkles, LogOut, User } from "lucide-react";
+import { BookOpen, Sparkles, LogOut, User, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ClassCard } from "@/components/ClassCard";
 import { HomeworkModal } from "@/components/HomeworkModal";
@@ -70,10 +70,19 @@ const Index = () => {
                 <span>{user?.email}</span>
               </div>
               <Button 
+                onClick={() => navigate("/chatroom")}
+                variant="outline" 
+                size="sm"
+                className="text-white border-white/30 hover:bg-white/10"
+              >
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Chatroom
+              </Button>
+              <Button 
                 onClick={handleSignOut}
                 variant="outline" 
                 size="sm"
-               
+                className="text-white border-white/30 hover:bg-white/10"
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 ထွက်ရန်
