@@ -8,7 +8,7 @@ export interface ChatMessage {
   content: string;
   author_name: string;
   created_at: string;
-  user_id: string;
+  user_id: string | null; // Allow null for anonymous users
 }
 
 export const useChatMessages = () => {
@@ -72,19 +72,19 @@ export const useChatMessages = () => {
   }, []);
 
   const sendMessage = async (content: string, authorName: string) => {
-    if (!user) {
+    if (!content.trim()) {
       toast({
-        title: "ဝင်ရောက်ရန် လိုအပ်ပါတယ်",
-        description: "စာပို့ဖို့အတွက် အရင်ဝင်ရောက်ပါ",
+        title: "အကြောင်းအရာမရှိပါ",
+        description: "စာသားတစ်ခုခုရေးပါ",
         variant: "destructive",
       });
       return;
     }
 
-    if (!content.trim()) {
+    if (!authorName.trim()) {
       toast({
-        title: "စာမျက်နှာမရှိပါ",
-        description: "စာတစ်ခုခုရေးပါ",
+        title: "နာမည်မရှိပါ",
+        description: "သင့်နာမည်ရေးပါ",
         variant: "destructive",
       });
       return;
@@ -94,9 +94,9 @@ export const useChatMessages = () => {
       const { error } = await supabase
         .from('chat_messages')
         .insert({
-          user_id: user.id,
+          user_id: user?.id || null, // Allow anonymous messages
           content: content.trim(),
-          author_name: authorName,
+          author_name: authorName.trim(),
         });
 
       if (error) throw error;
@@ -116,7 +116,14 @@ export const useChatMessages = () => {
   };
 
   const deleteMessage = async (messageId: string) => {
-    if (!user) return;
+    if (!user) {
+      toast({
+        title: "ဝင်ရောက်ရန် လိုအပ်ပါတယ်",
+        description: "စာဖျက်ဖို့အတွက် အရင်ဝင်ရောက်ပါ",
+        variant: "destructive",
+      });
+      return;
+    }
 
     try {
       const { error } = await supabase

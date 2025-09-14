@@ -80,12 +80,12 @@ const Chatroom: React.FC = () => {
                   <div
                     key={message.id}
                     className={`flex ${
-                      message.user_id === user?.id ? 'justify-end' : 'justify-start'
+                      message.user_id && message.user_id === user?.id ? 'justify-end' : 'justify-start'
                     }`}
                   >
                     <div
                       className={`max-w-[70%] rounded-lg p-3 ${
-                        message.user_id === user?.id
+                        message.user_id && message.user_id === user?.id
                           ? 'bg-primary text-primary-foreground'
                           : 'bg-secondary'
                       }`}
@@ -98,7 +98,7 @@ const Chatroom: React.FC = () => {
                           <span className="text-xs opacity-70">
                             {formatTime(message.created_at)}
                           </span>
-                          {message.user_id === user?.id && (
+                          {message.user_id && message.user_id === user?.id && (
                             <Button
                               variant="ghost"
                               size="sm"
@@ -121,41 +121,30 @@ const Chatroom: React.FC = () => {
 
           {/* Message Input */}
           <div className="border-t p-4">
-            {user ? (
-              <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <Input
+                placeholder="သင့်နာမည်ရေးပါ..."
+                value={authorName}
+                onChange={(e) => setAuthorName(e.target.value)}
+                className="w-full"
+              />
+              <div className="flex gap-2">
                 <Input
-                  placeholder="သင့်နာမည်ရေးပါ..."
-                  value={authorName}
-                  onChange={(e) => setAuthorName(e.target.value)}
-                  className="w-full"
+                  placeholder="စာတစ်စောင်ရေးပါ..."
+                  value={newMessage}
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  className="flex-1"
+                  disabled={!authorName.trim()}
                 />
-                <div className="flex gap-2">
-                  <Input
-                    placeholder="စာတစ်စောင်ရေးပါ..."
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    className="flex-1"
-                    disabled={!authorName.trim()}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={!newMessage.trim() || !authorName.trim()}
-                    className="px-4"
-                  >
-                    <Send className="h-4 w-4" />
-                  </Button>
-                </div>
-              </form>
-            ) : (
-              <div className="text-center py-4">
-                <p className="text-muted-foreground mb-2">
-                  စာပို့ဖို့အတွက် အရင်ဝင်ရောက်ပါ
-                </p>
-                <Button variant="outline" onClick={() => window.location.href = '/auth'}>
-                  ဝင်ရောက်ရန်
+                <Button
+                  type="submit"
+                  disabled={!newMessage.trim() || !authorName.trim()}
+                  className="px-4"
+                >
+                  <Send className="h-4 w-4" />
                 </Button>
               </div>
-            )}
+            </form>
           </div>
         </CardContent>
       </Card>

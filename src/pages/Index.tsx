@@ -31,10 +31,7 @@ const Index = () => {
     );
   }
 
-  if (!user) {
-    navigate("/auth");
-    return null;
-  }
+  // Allow viewing without login
 
   const handleSignOut = async () => {
     await signOut();
@@ -65,28 +62,53 @@ const Index = () => {
               <BookOpen className="w-8 h-8 text-white" />
             </div>
             <div className="flex items-center space-x-2">
-              <div className="text-white/90 text-sm flex items-center space-x-2">
-                <User className="w-4 h-4" />
-                <span>{user?.email}</span>
-              </div>
-              <Button 
-                onClick={() => navigate("/chatroom")}
-                variant="outline" 
-                size="sm"
-                className="text-white border-white/30 hover:bg-white/10"
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Chatroom
-              </Button>
-              <Button 
-                onClick={handleSignOut}
-                variant="outline" 
-                size="sm"
-                className="text-white border-white/30 hover:bg-white/10"
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                ထွက်ရန်
-              </Button>
+              {user ? (
+                <>
+                  <div className="text-white/90 text-sm flex items-center space-x-2">
+                    <User className="w-4 h-4" />
+                    <span>{user.email}</span>
+                  </div>
+                  <Button 
+                    onClick={() => navigate("/chatroom")}
+                    variant="outline" 
+                    size="sm"
+                    className="text-white border-white/30 hover:bg-white/10"
+                  >
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    Chatroom
+                  </Button>
+                  <Button 
+                    onClick={handleSignOut}
+                    variant="outline" 
+                    size="sm"
+                    className="text-white border-white/30 hover:bg-white/10"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    ထွက်ရန်
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button 
+                    onClick={() => navigate("/chatroom")}
+                    variant="outline" 
+                    size="sm"
+                    className="text-white border-white/30 hover:bg-white/10"
+                  >
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    Chatroom
+                  </Button>
+                  <Button 
+                    onClick={() => navigate("/auth")}
+                    variant="outline" 
+                    size="sm"
+                    className="text-white border-white/30 hover:bg-white/10"
+                  >
+                    <User className="w-4 h-4 mr-2" />
+                    ဝင်ရောက်ရန်
+                  </Button>
+                </>
+              )}
             </div>
           </div>
           

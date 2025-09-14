@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, LogOut } from 'lucide-react';
+import { ArrowLeft, LogOut, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import ChatroomComponent from '@/components/Chatroom';
@@ -27,17 +27,24 @@ const ChatroomPage: React.FC = () => {
             <h1 className="text-xl font-bold">Chatroom</h1>
           </div>
           
-          {user && (
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground">
-                {user.email}
-              </span>
-              <Button variant="outline" size="sm" onClick={handleSignOut}>
-                <LogOut className="h-4 w-4 mr-2" />
-                ထွက်ရန်
+          <div className="flex items-center gap-4">
+            {user ? (
+              <>
+                <span className="text-sm text-muted-foreground">
+                  {user.email}
+                </span>
+                <Button variant="outline" size="sm" onClick={handleSignOut}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  ထွက်ရန်
+                </Button>
+              </>
+            ) : (
+              <Button variant="outline" size="sm" onClick={() => window.location.href = '/auth'}>
+                <User className="h-4 w-4 mr-2" />
+                ဝင်ရောက်ရန်
               </Button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </header>
 
