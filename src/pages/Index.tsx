@@ -73,7 +73,7 @@ const Index = () => {
                 onClick={handleSignOut}
                 variant="outline" 
                 size="sm"
-                className="text-white border-white/20 hover:bg-white/10"
+               
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 ထွက်ရန်
@@ -82,7 +82,7 @@ const Index = () => {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-            My AI Video Content
+            Ethan's AI Video Content
             <span className="block gradient-text bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Class Journey
             </span>
