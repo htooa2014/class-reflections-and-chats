@@ -3,33 +3,30 @@ import { Heart, MessageCircle, User, BookOpen, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ClassData, ClassInteraction } from "@/types";
+import { ClassData } from "@/types";
+import { Comment } from "@/hooks/useComments";
 import { CommentSection } from "./CommentSection";
 
 interface ClassCardProps {
   classData: ClassData;
-  interaction: ClassInteraction;
-  onLike: (day: number) => void;
-  onComment: (day: number, comment: string, author: string) => void;
+  likes: number;
+  isLiked: boolean;
+  comments: Comment[];
+  onLike: () => void;
+  onComment: (content: string, author: string) => void;
   onViewHomework: (classData: ClassData) => void;
 }
 
 export const ClassCard = ({ 
   classData, 
-  interaction, 
+  likes,
+  isLiked,
+  comments,
   onLike, 
   onComment, 
   onViewHomework 
 }: ClassCardProps) => {
   const [showComments, setShowComments] = useState(false);
-
-  const handleLike = () => {
-    onLike(classData.day);
-  };
-
-  const handleComment = (comment: string, author: string) => {
-    onComment(classData.day, comment, author);
-  };
 
   return (
     <Card className="gradient-card border-0 shadow-card hover:shadow-hover transition-smooth transform hover:scale-[1.02] group">
@@ -92,17 +89,17 @@ export const ClassCard = ({
             <Button
               variant="ghost"
               size="sm"
-              onClick={handleLike}
+              onClick={onLike}
               className={`transition-bounce hover:scale-110 ${
-                interaction.isLiked 
+                isLiked 
                   ? "text-like hover:text-like/80" 
                   : "text-muted-foreground hover:text-like"
               }`}
             >
               <Heart 
-                className={`w-4 h-4 mr-2 ${interaction.isLiked ? "fill-current" : ""}`} 
+                className={`w-4 h-4 mr-2 ${isLiked ? "fill-current" : ""}`} 
               />
-              {interaction.likes}
+              {likes}
             </Button>
 
             {/* Comment Button */}
@@ -113,7 +110,7 @@ export const ClassCard = ({
               className="text-muted-foreground hover:text-comment transition-smooth"
             >
               <MessageCircle className="w-4 h-4 mr-2" />
-              {interaction.comments.length}
+              {comments.length}
             </Button>
           </div>
 
@@ -132,8 +129,8 @@ export const ClassCard = ({
         {showComments && (
           <div className="mt-6 pt-4 border-t border-border">
             <CommentSection
-              comments={interaction.comments}
-              onAddComment={handleComment}
+              comments={comments}
+              onAddComment={onComment}
             />
           </div>
         )}

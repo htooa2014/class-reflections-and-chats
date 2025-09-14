@@ -1,66 +1,44 @@
 import { useState } from "react";
-import { BookOpen, Sparkles } from "lucide-react";
+import { BookOpen, Sparkles, LogOut, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { ClassCard } from "@/components/ClassCard";
 import { HomeworkModal } from "@/components/HomeworkModal";
 import { classesData } from "@/data/classData";
-import { ClassData, ClassInteractions, Comment } from "@/types";
-import { useToast } from "@/hooks/use-toast";
+import { ClassData } from "@/types";
+import { useAuth } from "@/hooks/useAuth";
+import { useLikes } from "@/hooks/useLikes";
+import { useComments } from "@/hooks/useComments";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
-  const { toast } = useToast();
-  
-  // Initialize interactions state with default values for each class
-  const [interactions, setInteractions] = useState<ClassInteractions>(() => {
-    const initial: ClassInteractions = {};
-    classesData.forEach(classItem => {
-      initial[classItem.day] = {
-        likes: Math.floor(Math.random() * 15) + 1, // Random initial likes for demo
-        isLiked: false,
-        comments: []
-      };
-    });
-    return initial;
-  });
-
+  const { user, loading, signOut } = useAuth();
+  const { likes, toggleLike } = useLikes();
+  const { comments, addComment } = useComments();
+  const navigate = useNavigate();
   const [selectedHomework, setSelectedHomework] = useState<ClassData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleLike = (day: number) => {
-    setInteractions(prev => ({
-      ...prev,
-      [day]: {
-        ...prev[day],
-        likes: prev[day].isLiked ? prev[day].likes - 1 : prev[day].likes + 1,
-        isLiked: !prev[day].isLiked
-      }
-    }));
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 shadow-glow animate-pulse">
+            <BookOpen className="w-8 h-8 text-primary" />
+          </div>
+          <p className="text-muted-foreground">ခေတ္တစောင့်ပါ...</p>
+        </div>
+      </div>
+    );
+  }
 
-    toast({
-      title: interactions[day].isLiked ? "Like ရုပ်သိမ်းလိုက်ပါပြီ" : "Like နှိပ်လိုက်ပါပြီ",
-      description: "သင့်ရဲ့ တုံ့ပြန်မှုအတွက် ကျေးဇူးတင်ပါတယ်",
-    });
-  };
+  if (!user) {
+    navigate("/auth");
+    return null;
+  }
 
-  const handleComment = (day: number, content: string, author: string) => {
-    const newComment: Comment = {
-      id: Date.now().toString(),
-      author,
-      content,
-      timestamp: new Date()
-    };
-
-    setInteractions(prev => ({
-      ...prev,
-      [day]: {
-        ...prev[day],
-        comments: [...prev[day].comments, newComment]
-      }
-    }));
-
-    toast({
-      title: "မှတ်ချက်ထည့်ပြီးပါပြီ",
-      description: "သင့်ရဲ့ မှတ်ချက်အတွက် ကျေးဇူးတင်ပါတယ်",
-    });
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/auth");
   };
 
   const handleViewHomework = (classData: ClassData) => {
@@ -81,9 +59,25 @@ const Index = () => {
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         
         <div className="relative z-10 container mx-auto px-6 py-16 text-center">
-          <div className="flex items-center justify-center mb-6">
+          <div className="flex items-center justify-between mb-6">
+            <div></div>
             <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-glow">
               <BookOpen className="w-8 h-8 text-white" />
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="text-white/90 text-sm flex items-center space-x-2">
+                <User className="w-4 h-4" />
+                <span>{user?.email}</span>
+              </div>
+              <Button 
+                onClick={handleSignOut}
+                variant="outline" 
+                size="sm"
+                className="text-white border-white/20 hover:bg-white/10"
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                ထွက်ရန်
+              </Button>
             </div>
           </div>
           
@@ -112,9 +106,11 @@ const Index = () => {
             <ClassCard
               key={classData.day}
               classData={classData}
-              interaction={interactions[classData.day]}
-              onLike={handleLike}
-              onComment={handleComment}
+              likes={likes[classData.day]?.count || 0}
+              isLiked={likes[classData.day]?.isLiked || false}
+              comments={comments[classData.day] || []}
+              onLike={() => toggleLike(classData.day)}
+              onComment={(content: string, author: string) => addComment(classData.day, content, author)}
               onViewHomework={handleViewHomework}
             />
           ))}
@@ -132,14 +128,14 @@ const Index = () => {
             <div className="w-px h-8 bg-border"></div>
             <div className="text-center">
               <div className="text-2xl font-bold text-like">
-                {Object.values(interactions).reduce((sum, interaction) => sum + interaction.likes, 0)}
+                {Object.values(likes).reduce((sum, like) => sum + like.count, 0)}
               </div>
               <div className="text-sm text-muted-foreground">Likes</div>
             </div>
             <div className="w-px h-8 bg-border"></div>
             <div className="text-center">
               <div className="text-2xl font-bold text-comment">
-                {Object.values(interactions).reduce((sum, interaction) => sum + interaction.comments.length, 0)}
+                {Object.values(comments).reduce((sum, commentList) => sum + commentList.length, 0)}
               </div>
               <div className="text-sm text-muted-foreground">မှတ်ချက်များ</div>
             </div>

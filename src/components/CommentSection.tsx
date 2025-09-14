@@ -3,7 +3,7 @@ import { Send, User2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { Comment } from "@/types";
+import { Comment } from "@/hooks/useComments";
 
 interface CommentSectionProps {
   comments: Comment[];
@@ -22,13 +22,13 @@ export const CommentSection = ({ comments, onAddComment }: CommentSectionProps) 
     }
   };
 
-  const formatTime = (date: Date) => {
+  const formatTime = (dateString: string) => {
     return new Intl.DateTimeFormat('my', {
       hour: '2-digit',
       minute: '2-digit',
       day: '2-digit',
       month: 'short',
-    }).format(date);
+    }).format(new Date(dateString));
   };
 
   return (
@@ -48,9 +48,9 @@ export const CommentSection = ({ comments, onAddComment }: CommentSectionProps) 
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center space-x-2 mb-1">
-                  <span className="font-medium text-sm text-card-foreground">{comment.author}</span>
+                  <span className="font-medium text-sm text-card-foreground">{comment.author_name}</span>
                   <span className="text-xs text-muted-foreground">
-                    {formatTime(comment.timestamp)}
+                    {formatTime(comment.created_at)}
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
