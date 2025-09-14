@@ -65,7 +65,7 @@ const Index = () => {
             <div className="flex items-center space-x-2">
               {user ? (
                 <>
-                  <div className="text-white/90 text-sm flex items-center space-x-2">
+                  <div >
                     <User className="w-4 h-4" />
                     <span>{user.email}</span>
                   </div>
