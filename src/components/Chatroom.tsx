@@ -123,14 +123,12 @@ const Chatroom: React.FC = () => {
           <div className="border-t p-4">
             {user ? (
               <form onSubmit={handleSubmit} className="space-y-3">
-                {!authorName && (
-                  <Input
-                    placeholder="သင့်နာမည်ရေးပါ..."
-                    value={authorName}
-                    onChange={(e) => setAuthorName(e.target.value)}
-                    className="w-full"
-                  />
-                )}
+                <Input
+                  placeholder="သင့်နာမည်ရေးပါ..."
+                  value={authorName}
+                  onChange={(e) => setAuthorName(e.target.value)}
+                  className="w-full"
+                />
                 <div className="flex gap-2">
                   <Input
                     placeholder="စာတစ်စောင်ရေးပါ..."
