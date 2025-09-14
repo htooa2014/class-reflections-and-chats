@@ -81,7 +81,7 @@ const Index = () => {
                     onClick={handleSignOut}
                     variant="outline" 
                     size="sm"
-                    className="text-white border-white/30 hover:bg-white/10"
+                   
                   >
                     <LogOut className="w-4 h-4 mr-2" />
                     ထွက်ရန်
@@ -102,7 +102,7 @@ const Index = () => {
                     onClick={() => navigate("/auth")}
                     variant="outline" 
                     size="sm"
-                    className="text-white border-white/30 hover:bg-white/10"
+                  
                   >
                     <User className="w-4 h-4 mr-2" />
                     ဝင်ရောက်ရန်
