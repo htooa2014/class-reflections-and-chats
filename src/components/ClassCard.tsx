@@ -38,7 +38,7 @@ export const ClassCard = ({
               <Calendar className="w-5 h-5 text-white" />
             </div>
             <div>
-              <Badge variant="outline" className="mb-2 bg-accent-soft text-accent-foreground border-accent">
+              <Badge variant="outline" >
                 Day {classData.day}
               </Badge>
               <h2 className="text-xl font-bold text-card-foreground group-hover:text-primary transition-smooth">
