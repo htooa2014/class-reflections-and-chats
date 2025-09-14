@@ -20,12 +20,12 @@ export const HomeworkModal = ({ classData, isOpen, onClose }: HomeworkModalProps
             <DialogTitle className="text-2xl font-bold text-card-foreground">
               အိမ်စာ (Day {classData.day})
             </DialogTitle>
-            <Button
+           /* <Button
               variant="ghost"
               size="sm"
               onClick={onClose}
               className="text-muted-foreground hover:text-destructive transition-smooth"
-            >
+            >*/
               <X className="w-5 h-5" />
             </Button>
           </div>
