@@ -23,7 +23,7 @@ const Index = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 shadow-glow animate-pulse">
-           <img src="squidgame.jpg" alt="Ethan" height="150px" width="150px"> 
+             <BookOpen className="w-8 h-8 text-primary" />
 
           </div>
           <p className="text-muted-foreground">ခေတ္တစောင့်ပါ...</p>
