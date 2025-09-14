@@ -72,7 +72,7 @@ const Index = () => {
                     onClick={() => navigate("/chatroom")}
                     variant="outline" 
                     size="sm"
-                    className="text-white border-white/30 hover:bg-white/10"
+                  
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
                     Chatroom
@@ -113,7 +113,7 @@ const Index = () => {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-            Ethan's AI Video Content
+            My AI Video Content
             <span className="block gradient-text bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Class Journey
             </span>
@@ -122,7 +122,9 @@ const Index = () => {
           <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
             သင်တန်းတစ်ခုလုံးရဲ့ သင်ခန်းစာတွေနဲ့ သုံးသပ်ချက်တွေကို စုစည်းထားတဲ့ မှတ်တမ်း
           </p>
-
+          <p>
+            Ethan (MCMC0196)
+          </p>
           <div className="flex items-center justify-center space-x-2 mt-6 text-white/70">
             <Sparkles className="w-5 h-5" />
             <span className="text-sm">သင်ယူမှုခရီးစဉ်ကို မျှဝေပြီး မှတ်ချက်တွေပေးနိုင်ပါတယ်</span>
