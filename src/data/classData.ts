@@ -6,9 +6,9 @@ export const classesData: ClassData[] = [
     topic: "Social Media Influence ဆိုင်ရာ လေ့လာသုံးသပ်ချက်",
     lecturer: "Feliz (MCM Founder)",
     homework: "Text",
-    summary: "ဒီနေ့သင်ခန်းစာက Social Media ရဲ့ လွှမ်းမိုးမှုအကြောင်းပါ။ ဆရာဖလစ်က အသေးစူးရှင်းပြတယ်။ ဒါက ကျွန်တော့်အတွက် အလွန်အရေးကြီးတဲ့ အကြောင်းအရာတစ်ခုပါ။",
+    summary: "ဒီနေ့သင်ခန်းစာက Social Media ရဲ့ လွှမ်းမိုးမှုအကြောင်းပါ။ ဆရာဖလစ်က အသေးစိတ်ရှင်းပြတယ်။ ဒါက ကျွန်တော့်အတွက် အလွန်အရေးကြီးတဲ့ အကြောင်းအရာတစ်ခုပါ။",
     reflection: "ဒီသင်တန်းက ကျွန်တော့်ရဲ့အတွေးအခေါ်ကို တိုးတက်စေခဲ့ပြီး အနာဂတ်အတွက် အထောက်အကူဖြစ်စေပါတယ်။",
-    homeworkContent: "ဒီအိမ်စာက Social Media ရဲ့ အကျိုးသက်ရောက်မှုအပေါ် ရေးထားတဲ့ စာသားအကြောင်းအရာတစ်ခုပါ။ သင့်ရဲ့အိမ်စာစာသားကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။"
+    homeworkContent: "https://www.youtube.com/@Zawyemoeofficial <br/> ကျနော့်ရဲ့  ခံယူချက်နဲ့တော်တော်များများတူလိုပါ သူ့ရဲ့ ဘဝနဲ့ ယှဥ်ပီး motivation တွေပြောပြတာ သူ့ဆီကနေ သူပြောတာနားထောင်ပီး ကိုယ့်အတွက် စဥ်းစားစရာ တွေးစရာ တခုခုကျန်နေတတ်လိုပါ"
   },
   {
     day: 2,
@@ -71,6 +71,6 @@ export const classesData: ClassData[] = [
     homework: "Video",
     summary: "ဒီနေ့ကတော့ သင်တန်းတစ်ခုလုံးကို ပြန်လည်သုံးသပ်တဲ့နေ့ပါ။ ကျွန်တော်ရဲ့ သင်တန်းမှတ်စုတွေနဲ့ သင်ယူခဲ့တာတွေကို ပြန်ပြီးသုံးသပ်ခဲ့ပါတယ်။",
     reflection: "ဒီသင်တန်းက ကျွန်တော့်အတွက် တကယ်ကို တန်ဖိုးရှိပါတယ်။",
-    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4"></p><p class="mt-4">ဒီအိမ်စာမှာ စာသားပါ ပါဝင်ပါတယ်။ သင့်ရဲ့အိမ်စာစာသားကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p>`
+    homeworkContent: `<div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/V-l6XydqAFk?si=NQYyWpPry-qjNhVW" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="mt-4"></p><p class="mt-4">ဒီအိမ်စာမှာ စာသားပါ ပါဝင်ပါတယ်။ သင့်ရဲ့အိမ်စာစာသားကို ဒီနေရာမှာ ထည့်နိုင်ပါတယ်။</p>`
   }
 ];
